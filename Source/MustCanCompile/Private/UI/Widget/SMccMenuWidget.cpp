@@ -6,11 +6,19 @@
 #include "MccMenuWidgetStyle.h"
 #include "SBox.h"
 
+/*
+//#include "Internationalization.h"
+
+	FInternationalization::Get().SetCurrentCulture(TEXT("en"));	//显示英文
+	FInternationalization::Get().SetCurrentCulture(TEXT("ch"));	//显示中文
+*/
+
+
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 void SMccMenuWidget::Construct(const FArguments& InArgs)
 {
 	MenuStyle = &MccStyle::Get().GetWidgetStyle<FMccMenuStyle>("BPMccMenuStyle");
-
+	
 	ChildSlot
 		[
 			SAssignNew(RootSizeBox, SBox)
@@ -60,7 +68,7 @@ void SMccMenuWidget::Construct(const FArguments& InArgs)
 		[
 			SAssignNew(TittleText, STextBlock)
 			.Font(MccStyle::Get().GetFontStyle("MenuItemFont"))
-		.Text(FText::FromString("I am LeSii"))
+		.Text(NSLOCTEXT("MccMenu","Menu","Menu"))
 		]	//SBorder结束	
 
 		]	//SBox结束
