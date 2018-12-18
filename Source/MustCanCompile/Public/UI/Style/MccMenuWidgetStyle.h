@@ -43,6 +43,17 @@ struct MUSTCANCOMPILE_API FMccMenuStyle : public FSlateWidgetStyle
 	UPROPERTY(EditAnywhere, Category = MenuItem)
 		FSlateBrush MenuItemBrush;
 
+	UPROPERTY(EditAnywhere, Category = GameOption)
+		FSlateBrush GameOptionBGBrush;
+
+	//CheckBox被选中
+	UPROPERTY(EditAnywhere, Category = GameOption)
+		FSlateBrush CheckedBoxBrush;
+	//CheckBox未被选中
+	UPROPERTY(EditAnywhere, Category = GameOption)
+		FSlateBrush UncheckedBoxBrush;
+
+
 	//60号字体
 	UPROPERTY(EditAnywhere, Category = Common)
 		FSlateFontInfo Font_60;
@@ -52,6 +63,12 @@ struct MUSTCANCOMPILE_API FMccMenuStyle : public FSlateWidgetStyle
 	//30号字体
 	UPROPERTY(EditAnywhere, Category = Common)
 		FSlateFontInfo Font_30;
+	//白色字体
+	UPROPERTY(EditAnywhere, Category = Common)
+		FLinearColor FontColor_White;
+	//黑色字体
+	UPROPERTY(EditAnywhere, Category = Common)
+		FLinearColor FontColor_Black;
 };
 
 /**

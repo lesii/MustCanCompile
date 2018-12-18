@@ -11,8 +11,8 @@
 UENUM()
 enum class ECultureTeam : uint8
 {
-	EN =0,
-	CH
+	EN = 0,
+	ZH
 
 };
 

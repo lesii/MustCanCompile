@@ -18,8 +18,8 @@ void MccDataHandle::ChangeLocalizationCultrue(ECultureTeam _Culture)
 	case ECultureTeam::EN:
 		FInternationalization::Get().SetCurrentCulture(TEXT("en"));
 		break;
-	case ECultureTeam::CH:
-		FInternationalization::Get().SetCurrentCulture(TEXT("ch"));
+	case ECultureTeam::ZH:
+		FInternationalization::Get().SetCurrentCulture(TEXT("zh"));
 		break;
 	default:
 		break;
@@ -43,4 +43,6 @@ TSharedRef<MccDataHandle> MccDataHandle::MccDataHandle::Creat()
 
 MccDataHandle::MccDataHandle()
 {
+	//初始化为中文
+	CurrentCulture = ECultureTeam::ZH;
 }
