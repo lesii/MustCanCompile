@@ -39,6 +39,19 @@ struct MUSTCANCOMPILE_API FMccMenuStyle : public FSlateWidgetStyle
 
 	UPROPERTY(EditAnywhere, Category = Title)
 		FSlateBrush TitleBorderBrush;
+
+	UPROPERTY(EditAnywhere, Category = MenuItem)
+		FSlateBrush MenuItemBrush;
+
+	//60ºÅ×ÖÌå
+	UPROPERTY(EditAnywhere, Category = Common)
+		FSlateFontInfo Font_60;
+	//40ºÅ×ÖÌå
+	UPROPERTY(EditAnywhere, Category = Common)
+		FSlateFontInfo Font_40;
+	//30ºÅ×ÖÌå
+	UPROPERTY(EditAnywhere, Category = Common)
+		FSlateFontInfo Font_30;
 };
 
 /**

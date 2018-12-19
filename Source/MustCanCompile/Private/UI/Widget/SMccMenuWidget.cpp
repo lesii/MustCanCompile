@@ -5,6 +5,9 @@
 #include "MccStyle.h"
 #include "MccMenuWidgetStyle.h"
 #include "SBox.h"
+#include "SBoxPanel.h"
+#include "SMccMenuItemWidget.h"
+#include "MccTypes.h"
 
 /*
 //#include "Internationalization.h"
@@ -12,6 +15,8 @@
 	FInternationalization::Get().SetCurrentCulture(TEXT("en"));	//显示英文
 	FInternationalization::Get().SetCurrentCulture(TEXT("ch"));	//显示中文
 */
+
+
 
 
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
@@ -76,6 +81,13 @@ void SMccMenuWidget::Construct(const FArguments& InArgs)
 		]//Overlay::Slot结束
 
 
+	+ SOverlay::Slot()
+		.HAlign(HAlign_Center)
+		.VAlign(VAlign_Top)
+		.Padding(FMargin(0.f, 130.f, 0.f, 0.f))
+		[
+			SAssignNew(ContentBox, SVerticalBox)
+		]	//Slot结束
 
 			]	//SizeBox结束
 		];	//ChildSlot结束
@@ -83,5 +95,19 @@ void SMccMenuWidget::Construct(const FArguments& InArgs)
 	RootSizeBox->SetWidthOverride(600.f);	//设置长宽
 	RootSizeBox->SetHeightOverride(510.f);	//设置长宽
 
+	//垂直内容列表Slot
+	ContentBox->AddSlot()
+		[
+			SNew(SMccMenuItemWidget)
+			.ItemText(NSLOCTEXT("MccMenu", "StartGame", "StartGame"))
+			.ItemType(EMenuItem::StartGame)
+			.OnClicked(this,&SMccMenuWidget::MenuItemOnClicked)
+		];
+
 }
 END_SLATE_FUNCTION_BUILD_OPTIMIZATION
+
+void SMccMenuWidget::MenuItemOnClicked(EMenuItem::Type ItemType)
+{
+	//TittleText->SetText(NSLOCTEXT("MccMenu", "StartGame", "StartGame"));	//测试是否能够点击
+}
