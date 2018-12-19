@@ -8,6 +8,8 @@
 #include "SBoxPanel.h"
 #include "SMccMenuItemWidget.h"
 #include "MccTypes.h"
+#include "Common/MccHelper.h"
+#include "UI/Widget//SMccGameOptionWdiget.h"
 
 /*
 //#include "Internationalization.h"
@@ -98,10 +100,15 @@ void SMccMenuWidget::Construct(const FArguments& InArgs)
 	//垂直内容列表Slot
 	ContentBox->AddSlot()
 		[
+
+			SNew(SMccGameOptionWdiget)
+			/*
 			SNew(SMccMenuItemWidget)
 			.ItemText(NSLOCTEXT("MccMenu", "StartGame", "StartGame"))
 			.ItemType(EMenuItem::StartGame)
 			.OnClicked(this,&SMccMenuWidget::MenuItemOnClicked)
+		*/
+
 		];
 
 }
@@ -109,5 +116,5 @@ END_SLATE_FUNCTION_BUILD_OPTIMIZATION
 
 void SMccMenuWidget::MenuItemOnClicked(EMenuItem::Type ItemType)
 {
-	//TittleText->SetText(NSLOCTEXT("MccMenu", "StartGame", "StartGame"));	//测试是否能够点击
+	//MccHelper::Debug(FString("hhhhhh"), 5.f);
 }
